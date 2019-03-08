@@ -425,3 +425,41 @@ td,
 th {
   padding: 0;
 }
+
+
+
+
+class Nota2{
+  constructor(produto,qtd,valor,desconto){
+    this.produto = produto;
+    this.qtd = qtd;
+    this.valor = valor;
+    this.desconto = desconto;
+  }valorDesconto(){
+    if(this.desconto > 1){
+    return this.qtd * (this.valor - this.desconto);
+    } else{
+      return this.qtd * (this.valor-(this.valor * this.desconto));
+      }
+  }
+  valorFinal(){
+    if(this.desconto > 1){
+    return (this.valor * this.qtd) - (this.qtd * (this.valor - this.desconto));
+      } else{
+    return (this.valor * this.qtd) - (this.qtd * (this.valor-(this.valor * this.desconto)));
+    }
+
+  }
+
+  valorSem(){
+    return (this.valor * this.qtd);
+  }
+
+  imprime(){
+    return "Produto: " + this.produto + "| Valor: "+ this.valor +
+    "| Quantidade: "+ this.qtd + "| Desconto: " + this.valorDesconto() +
+    "| Valor Final: " + this.valorFinal();
+
+  }
+
+}
