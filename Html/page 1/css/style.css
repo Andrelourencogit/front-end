@@ -1,0 +1,62 @@
+body{
+    background-color: #000;
+    color: white;
+    font-size: 20px;
+}
+p{
+    color: #FFCC00;
+}
+h1{
+    font-size: 70px;
+    color:lightgreen ;
+}
+
+div{
+    background: peru;
+    width: 500px;
+    margin: 100px;
+    
+}
+span{
+    color: yellow;
+    font-size: 40px;
+}
+.top-section{
+    background: skyblue;
+}
+.bottom-section{
+    background: green;
+}
+.intro{
+    font-size: 30px;
+}
+
+/* the css box model*/
+/* padding, margin , os atributos de borda
+   todos eles permitem alteração: top,bottom,left e right;
+*/
+
+.box{
+   background: pink;
+   width: 300px;
+   margin: 100px;
+   border-color: red;
+   border-width: 5px;
+   border-style: double;
+   padding: 50px 100px 120px 25px;/* top right bottom left */
+
+}
+
+.album-foto{
+  margin:50px;
+  background-image: url(../imagens/fundo.jpg);
+  background-size: cover;
+  background-position: center;
+}
+img{
+  width: 300px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 50;
+  margin-top: 30px;
+}
