@@ -1,0 +1,80 @@
+body{
+    background-color: #a7dbe3;
+
+}
+h1{
+    font-size: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 0px;
+
+}
+h2{
+    margin-top: 0px;
+    text-decoration: overline;
+    text-transform: capitalize;
+}
+p{
+    margin-bottom: 0px;
+    margin-top: 20px;
+
+    line-height: 40px;
+}
+
+.styling-text{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color:blue; 
+  
+}
+a{
+    color: red;
+    text-decoration: underline;
+}
+a:visited{
+    color: blueviolet;
+}
+a:hover{
+    color: yellow;
+}
+a:active{
+    color: blue;
+}
+a:focus{
+    color: green;
+}
+
+/*selector css*/
+.selector{
+    background: #79acd1;
+    padding: 50px;
+}
+
+.selector p {
+    color:white;
+}
+
+.selector a:hover{
+    color: #DDD;
+}
+
+ol{
+    /*list-style-image: url(../imagens/praia.jpg);*/
+    list-style-type: circle;
+}
+ul{
+    list-style-type: lower-alpha;
+}
+ul li{
+    background: white;
+    margin-top: 5px;
+}
+
+
+/*layout basic*/
+
+.container{
+    background: white;
+    width: 600px;
+    margin: 0 auto;
+    
+}

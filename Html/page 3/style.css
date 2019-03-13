@@ -40,6 +40,7 @@ a.fb{
     background: url(img/fb.png) no-repeat center;
     background-size: 80%;
 }
+/*diminui as fotos*/
 .social a{
     text-indent: -10000px;
 }
@@ -61,6 +62,7 @@ nav ul.social li {
 @media screen and (min-width:768px){
     nav ul{
         display: flex;
+        /*onde os menus se agruparão end, start,space around..  */
         justify-content: flex-start;
     }
 
