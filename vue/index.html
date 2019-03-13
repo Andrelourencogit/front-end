@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>Aula 1 vue</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>{{titulo}}</h1>
+        <div v-if="usuario.id == 1">
+            Id: {{usuario.id}}<br>
+            Nome: {{usuario.nome}}<br>
+            Profissao: {{usuario.ocupacao}}
+        </div>
+        <div v-else> usuario não encontrado :(</div>
+    </div>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    status: true,
+                    titulo: "Aula-01 Vue.js",
+                    usuario: {
+                        id: 1,
+                        nome: "Tony",
+                        ocupacao: "Empresario"
+
+                    }
+
+                }
+            });
+        </script>
+   
+
+    <div id="app-2">
+        <ul>
+            <li v-for="(item,index ) in linguagens">{{index + 1}} - {{item.nome}}</li>
+        </ul>
+
+    </div>
+        <script>
+            var app2 = new Vue({
+                el: "#app-2",
+                data: {
+                    titulo: "Aula-02 Vue.js",
+                    linguagens: [
+                        { nome: "javascript" },
+                        { nome: "Php" },
+                        { nome: "C#" },
+                        { nome: "java" },
+                        { nome: "Python" }
+                    ]
+                }
+            });
+        </script>
+    
+
+    <div id="app-3">
+        <h1>{{titulo}}</h1>
+
+        <label>Nome</label><br>
+        <input type="text" v-model="nome">
+
+        <br><br>
+        <label for="">Telefone</label><br>
+        <input type="text" v-model="telefone">
+
+        <br><br>
+        <label for="">Deseja receber novidades?</label><br>
+        <input type="radio" value="sim" v-model="novidades">Sim
+        <input type="radio" value="nao" v-mode="novidades">Não
+
+        <br><br>
+        <label for="">Interesses</label><br>
+        <input type="checkbox" value="Futebol" v-model="interesses">Futebol <br>
+        <input type="checkbox" value="Formula 1" v-model="interesses"> Formula 1 <br>
+        <input type="checkbox" value="Corrida" v-model= "interesses">Corrida <br>
+
+        <br><br>
+        <label for="">Como nos conheceu?</label> <br>
+        <select v-model="conheceu">
+            <option value="Google">Google</option>
+            <option value="Tv">Tv</option>
+            <option value="Revista">Revista</option>
+        </select>
+      
+        <br><br>
+        <button>Enviar</button>
+
+        <br><br>
+
+        Nome:{{nome}} <br>
+        Telefone: {{telefone}} <br>
+        Novidades: {{novidades}} <br>
+        Interesses: {{interesses}} <br>
+        Conheceu: {{conheceu}}
+    </div>
+        <script>
+            var app3 = new Vue({
+                el:"#app-3",
+                data:{
+                    titulo:"Formulario Vue.js",
+                    nome: "",
+                    telefone: "", 
+                    novidades: "",
+                    interesses: [],
+                    conheceu: ""
+
+                }
+            });
+        </script>
+    
+
+</body>
+
+</html>
