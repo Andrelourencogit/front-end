@@ -80,8 +80,9 @@
 
         <br><br>
         <label for="">Deseja receber novidades?</label><br>
+        <input type="radio" value="nao" v-model="novidades">Não
         <input type="radio" value="sim" v-model="novidades">Sim
-        <input type="radio" value="nao" v-mode="novidades">Não
+        
 
         <br><br>
         <label for="">Interesses</label><br>
@@ -103,7 +104,7 @@
         <br><br>
 
         Nome:{{nome | maiuscula()}} <br>
-        Telefone: {{telefone}} <br>
+        Telefone: {{telefone | formataTelefone()}} <br>
         Novidades: {{novidades}} <br>
         Interesses: {{interesses}} <br>
         Conheceu: {{conheceu}}
@@ -128,6 +129,13 @@
             filters: {
                 maiuscula(str) {
                     return str.toUpperCase();
+                },
+                formataTelefone(str){
+                    if(str.length === 8)
+                    return '9 '+ str;
+                    else 
+                    return str; 
+
                 }
             }
 
