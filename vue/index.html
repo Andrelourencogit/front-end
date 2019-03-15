@@ -4,13 +4,14 @@
 <head>
     <meta charset="utf-8">
     <title>Aula 1 vue</title>
-    <script src="https://unpkg.com/vue"></script>
+    <!-- <script src="https://unpkg.com/vue"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
 
     <div id="app">
-        <h1>{{titulo}}</h1>
+        <h1 v-bind:style="fundot">{{titulo}}</h1>
         <div v-if="usuario.id == 1">
             Id: {{usuario.id}}<br>
             Nome: {{usuario.nome}}<br>
@@ -18,49 +19,57 @@
         </div>
         <div v-else> usuario não encontrado :(</div>
     </div>
-        <script>
-            var app = new Vue({
-                el: "#app",
-                data: {
-                    status: true,
-                    titulo: "Aula-01 Vue.js",
-                    usuario: {
-                        id: 1,
-                        nome: "Tony",
-                        ocupacao: "Empresario"
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                status: true,
+                titulo: "Aula-01 Vue.js",
+                usuario: {
+                    id: 1,
+                    nome: "Tony",
+                    ocupacao: "Empresario",
 
-                    }
+                },
+                fundot: { 'background': 'blue' }
 
-                }
-            });
-        </script>
-   
+            }
+
+        });
+    </script>
+
 
     <div id="app-2">
         <ul>
-            <li v-for="(item,index ) in linguagens">{{index + 1}} - {{item.nome}}</li>
+            <!-- <li v-for="(item,index ) in linguagens">{{index + 1}} - {{item.nome}}</li> -->
+            <lista v-for="item in linguagens" v-bind:nome="item" v-bind:key="item.id"></lista>
+            
         </ul>
 
     </div>
-        <script>
-            var app2 = new Vue({
-                el: "#app-2",
-                data: {
-                    titulo: "Aula-02 Vue.js",
-                    linguagens: [
-                        { nome: "javascript" },
-                        { nome: "Php" },
-                        { nome: "C#" },
-                        { nome: "java" },
-                        { nome: "Python" }
-                    ]
-                }
-            });
-        </script>
-    
+    <script>
+        Vue.component('lista', {
+            props: ['nome'],
+            template: '<li>{{ nome.text }}</li>'
+        });
+        var app2 = new Vue({
+            el: "#app-2",
+            data: {
+                titulo: "Aula-02 Vue.js",
+                linguagens: [
+                    { id: 0, nome: "javascript" },
+                    { id: 1, nome: "Php" },
+                    { id: 2, nome: "C#" },
+                    { id: 3, nome: "java" },
+                    { id: 4, nome: "Python" }
+                ]
+            }
+        });
+    </script>
+
 
     <div id="app-3">
-        <h1>{{titulo}}</h1>
+        <h1 v-bind:style="fundo">{{titulo}}</h1>
 
         <label>Nome</label><br>
         <input type="text" v-model="nome">
@@ -78,7 +87,7 @@
         <label for="">Interesses</label><br>
         <input type="checkbox" value="Futebol" v-model="interesses">Futebol <br>
         <input type="checkbox" value="Formula 1" v-model="interesses"> Formula 1 <br>
-        <input type="checkbox" value="Corrida" v-model= "interesses">Corrida <br>
+        <input type="checkbox" value="Corrida" v-model="interesses">Corrida <br>
 
         <br><br>
         <label for="">Como nos conheceu?</label> <br>
@@ -87,33 +96,46 @@
             <option value="Tv">Tv</option>
             <option value="Revista">Revista</option>
         </select>
-      
+
         <br><br>
-        <button>Enviar</button>
+        <button v-on:click="enviar">Enviar</button>
 
         <br><br>
 
-        Nome:{{nome}} <br>
+        Nome:{{nome | maiuscula()}} <br>
         Telefone: {{telefone}} <br>
         Novidades: {{novidades}} <br>
         Interesses: {{interesses}} <br>
         Conheceu: {{conheceu}}
     </div>
-        <script>
-            var app3 = new Vue({
-                el:"#app-3",
-                data:{
-                    titulo:"Formulario Vue.js",
-                    nome: "",
-                    telefone: "", 
-                    novidades: "",
-                    interesses: [],
-                    conheceu: ""
-
+    <script>
+        var app3 = new Vue({
+            el: "#app-3",
+            data: {
+                titulo: "Formulario Vue.js",
+                nome: "",
+                telefone: "",
+                novidades: "",
+                interesses: [],
+                conheceu: "",
+                fundo: { 'background': 'red' }
+            },
+            methods: {
+                enviar() {
+                    alert('dados enviados');
                 }
-            });
-        </script>
-    
+            },
+            filters: {
+                maiuscula(str) {
+                    return str.toUpperCase();
+                }
+            }
+
+        });
+    </script>
+
+
+
 
 </body>
 
